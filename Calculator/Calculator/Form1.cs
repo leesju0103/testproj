@@ -14,6 +14,7 @@ namespace Calculator
         Boolean op_change_flag = false, end_flag = false;
         double first_value, second_value, tmp;
         char op;
+        int op_cnt = 0;
 
         /// 이승주
         /// 2024/2/19
@@ -49,8 +50,51 @@ namespace Calculator
             Button btnOp = (Button)sender;
             if (op_change_flag)
                 return;
-            first_value = Double.Parse(label_input.Text);
-            textbox_history.Text += first_value + " " + btnOp.Text + " ";
+
+            ///////////////////////////////////////////////////////////////////////////
+            /// 이승주
+            /// 2024/2/19
+            /// 한 줄에서 여러 연산이 가능하도록 수정
+            /// 이전에는 두 개 이상의 연산을 하지 못함
+            
+            if (op_cnt == 0)
+            {
+                op_cnt = 1;
+                first_value = Double.Parse(label_input.Text);
+                textbox_history.Text += first_value + " " + btnOp.Text + " ";
+            }
+            
+            else
+            {
+                op_cnt += 1;
+                second_value = Double.Parse(label_input.Text);
+                if (op == '+')
+                {
+                    label_input.Text = (first_value + second_value).ToString();
+                }
+                else if (op == '-')
+                {
+                    label_input.Text = (first_value - second_value).ToString();
+                }
+                else if (op == '*')
+                {
+                    label_input.Text = (first_value * second_value).ToString();
+                }
+                else if (op == '/')
+                {
+                    if (second_value == 0)
+                    {
+                        label_input.Text = "0으로 나눌 수 없습니다";
+                        return;
+                    }
+                    else
+                        label_input.Text = (first_value / second_value).ToString();
+                }
+                first_value = Double.Parse(label_input.Text);
+                textbox_history.Text += second_value + " " + btnOp.Text + " ";
+            }
+
+            ///////////////////////////////////////////////////////////////////////////
             op = btnOp.Text[0];
             op_change_flag = true;
         }
@@ -82,6 +126,8 @@ namespace Calculator
                     label_input.Text = (first_value / second_value).ToString();
             }
             textbox_history.Text += "\n";
+            first_value = second_value = 0;
+            op_cnt = 0;
             end_flag = true;
         }
 
