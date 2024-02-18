@@ -1,3 +1,4 @@
+using System.DirectoryServices.ActiveDirectory;
 using System.Windows.Forms.VisualStyles;
 
 namespace Calculator
@@ -31,7 +32,7 @@ namespace Calculator
 
         /// 이승주
         /// 2024/2/19
-        /// 소수점 추가
+        /// 소수점 입력
         private void button_point_Click(object sender, EventArgs e)
         {
             if (label_input.Text.Contains("."))
@@ -91,9 +92,26 @@ namespace Calculator
             label_input.Text = tmp.ToString();
         }
 
+        /// 이승주
+        /// 2024/2/19
+        /// 저장 버튼 클릭 시 파일 내보내기
         private void 저장ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "다른 이름으로 저장";
+            sfd.OverwritePrompt = true;
+            sfd.Filter = "텍스트 문서(*.txt)|*.txt; |모든 파일(*.*)|*.*";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                if(sfd.FileName != "")
+                {
+                    Console.WriteLine(sfd.FileName);
+                    System.IO.File.WriteAllText(sfd.FileName, textbox_history.Text);
+                }
+            }
+
+            return;
         }
     }
 }
