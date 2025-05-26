@@ -45,6 +45,6 @@
   <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
   <img src="https://img.shields.io/badge/fontawesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white">
   <img src="https://img.shields.io/badge/mobx-FF9955?style=for-the-badge&logo=mobx&logoColor=white">
-  <img src="https://img.shields.io/badge/tailwind CSS-06B6D4?style=for-the-badge&logo=Tailwind CSS&logoColor=white"/>
+  <img src="https://img.shields.io/badge/tailwindCSS-06B6D4?style=for-the-badge&logo=Tailwind CSS&logoColor=white"/>
   <br>
 </div>
