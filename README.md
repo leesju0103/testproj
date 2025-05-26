@@ -46,5 +46,6 @@
   <img src="https://img.shields.io/badge/fontawesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white">
   <img src="https://img.shields.io/badge/mobx-FF9955?style=for-the-badge&logo=mobx&logoColor=white">
   <img src="https://img.shields.io/badge/tailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white"/>
+  <img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white"/>
   <br>
 </div>
